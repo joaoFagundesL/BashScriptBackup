@@ -21,7 +21,7 @@ fi
 #enter the directory
 dest=$HOME/Documents/backup
 
-#copying files from source to backup always
+#copying files from source to backup
 for file in $(find $source -printf "%P\n"); do
     if [ -a $dest/$file ]; then
         if [ $source/$file -nt $dest/$file ]; then
