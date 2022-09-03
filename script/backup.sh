@@ -1,9 +1,9 @@
 #!/bin/bash
 
-dest=$HOME/Documents/backup
-
+#user provides the source dir
 read -p "Directory name (Only one): " dir_name
 
+#does source dir exist?
 if [ ! -d $dir_name ]; then
     echo "Error: $dir_name does not exist"
     exit 1
@@ -17,6 +17,9 @@ if [ ! -d $HOME/Documents/backup  ]; then
     sleep 1
     mkdir $HOME/Documents/backup/
 fi
+
+#enter the directory
+dest=$HOME/Documents/backup
 
 #copying files from source to backup always
 for file in $(find $source -printf "%P\n"); do
@@ -36,4 +39,5 @@ for file in $(find $source -printf "%P\n"); do
     fi
 done
 
+# :)
 echo "Updated!"
